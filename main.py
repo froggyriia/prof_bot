@@ -179,14 +179,12 @@ async def handle_answer(message: Message):
         question_data = quiz_data[current_question]
         correct_answer = question_data["correct_answer"]
         additional_info = question_data["info"]
-        image_path = question_data["image"]
 
         if message.text == correct_answer:
             user_info["correct_answers"] += 1
             await message.reply("Совершенно верно!")
         else:
             await message.reply(f"Неа!")
-        image = open(image_path, 'rb')
 
         # Отправляем правильный ответ с дополнительной информацией и картинкой
         await bot.send_message(
