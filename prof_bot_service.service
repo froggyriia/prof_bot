@@ -1,0 +1,14 @@
+
+[Unit]
+Description=Telegram Bot
+After=network.target
+
+[Service]
+User=riia
+Group=riia
+WorkingDirectory=/home/riia/prof_bot/
+Environment="PYTHONPATH=/home/riia/prof_bot/"
+ExecStart=/home/riia/prof_bot/.venv/bin/python /home/riia/prof_bot/main.py
+
+[Install]
+WantedBy=multi-user.target
