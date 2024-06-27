@@ -117,8 +117,8 @@ async def ask_question(message):
         )
         await  bot.send_message(
             chat_id=message.chat.id,
-            text= f"\nА ещё держи промокод на скидку в 10% на любую услугу Центра:\n`{generate_promo_code()},`\n"
-                  f"чтобы использовать его обратитесь к Наталье (Whatsapp: `+79050845654`)",
+            text= f"\nА ещё держи промокод на скидку в 10% на любую услугу Центра:\n`{generate_promo_code()}`\n"
+                  f"Чтобы использовать его обратитесь к Наталье (Whatsapp: `+79050845654`)",
             reply_markup=ReplyKeyboardRemove(),
             parse_mode= ParseMode.MARKDOWN
 
