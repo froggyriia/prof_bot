@@ -98,7 +98,8 @@ async def ask_question(message):
         await bot.send_message(
             chat_id=message.chat.id,
             text=question_text,
-            reply_markup=ReplyKeyboardMarkup(keyboard=keyboard, resize_keyboard=True)
+            reply_markup=ReplyKeyboardMarkup(keyboard=keyboard, resize_keyboard=True),
+            parse_mode=ParseMode.MARKDOWN
         )
     else:
         await bot.send_message(
@@ -116,7 +117,8 @@ async def ask_question(message):
         )
         await  bot.send_message(
             chat_id=message.chat.id,
-            text= f"\nА ещё держи промокод на скидку в 10% на любую услугу Центра:\n`{generate_promo_code()}`",
+            text= f"\nА ещё держи промокод на скидку в 10% на любую услугу Центра:\n`{generate_promo_code()},`\n"
+                  f"чтобы использовать его обратитесь К Наталье (Whatsapp - `+7 (905) 084 56-54`",
             reply_markup=ReplyKeyboardRemove(),
             parse_mode= ParseMode.MARKDOWN
 
@@ -147,7 +149,7 @@ async def get_users(message: Message):
                 user_info += f"{user['full_name']} | {user['age']} | {user['phone']} | @{user['username']}\n"
             await message.answer(user_info)
     else:
-        await message.answer("You are not authorized to use this command.")
+        await message.answer("У вас нет прав администратора для использования этой команды")
 
 
 
